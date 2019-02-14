@@ -19,7 +19,7 @@ export class ListComponent implements OnInit {
 
   f = new FormGroup({
     text: new FormControl('', [Validators.required]),
-    isUrgent: new FormControl(false)
+    isUrgent: new FormControl(false, [])
   });
 
   constructor() { }
@@ -32,8 +32,8 @@ export class ListComponent implements OnInit {
   }
 
   onSubmit() {
-    this.todolist.push(this.f.value);
-    this.f.reset();
+    this.todolist.push({isUrgent: this.f.value.isUrgent, text: this.f.value.text});
+    this.f.setValue({text: '', isUrgent: false});
   }
 
   isSelected(r: TodoRecord) {
@@ -54,6 +54,11 @@ export class ListComponent implements OnInit {
 
   removeSelection() {
     console.log('about to remove');
+    this.selectedRecords.forEach(r => {
+      const index = this.todolist.findIndex(x => x === r);
+      this.todolist.splice(index, 1);
+    });
+    this.selectedRecords.clear();
   }
 
 }
