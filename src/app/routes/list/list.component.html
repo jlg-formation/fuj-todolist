@@ -10,12 +10,10 @@
     <button [disabled]="f.invalid">Submit</button>
   </div>
 </form>
-<br>
-<br>
-<br>
-<button [disabled]="!hasSelectedRecords()">Remove</button>
-<br>
-<br>
+<div class="command">
+  <button *ngIf="hasSelectedRecords()">Remove</button>
+</div>
+
 <div class="table">
   <div class="row header">
     <div class="col col-1">Texte</div>
