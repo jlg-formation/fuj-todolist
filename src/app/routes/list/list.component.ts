@@ -32,8 +32,13 @@ export class ListComponent implements OnInit {
   }
 
   onSubmit() {
-    this.todolist.push({isUrgent: this.f.value.isUrgent, text: this.f.value.text});
-    this.f.setValue({text: '', isUrgent: false});
+    this.todolist.push({ ...this.f.value });
+    this.reset();
+  }
+
+  reset() {
+    console.log('reset');
+    this.f.reset({text: 'azer' + Math.floor(Math.random() * 100), isUrgent: false});
   }
 
   isSelected(r: TodoRecord) {

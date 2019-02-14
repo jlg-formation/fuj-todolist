@@ -6,7 +6,7 @@
     <label><input type="checkbox" formControlName="isUrgent"> tâche urgente</label>
   </div>
   <div>
-    <button type="reset">Reset</button>
+    <button (click)="reset()" type="button">Reset</button>
     <button [disabled]="f.invalid">Submit</button>
   </div>
 </form>
