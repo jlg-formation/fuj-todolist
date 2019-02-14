@@ -1,0 +1,19 @@
+.jumbo {
+    text-align: center;
+    font-size: 3rem;
+    .tagline {
+        font-weight: bolder;
+        
+        padding: 2rem;
+    }
+    button.primary {
+        padding: 0.3rem 2rem;
+        font-size: 2rem;
+        background-color: hsla(4, 94%, 69%, 1);
+        border: 1px solid black;
+        box-shadow: 0px 0px 18px 4px #999;
+        &:active {
+            box-shadow: 0px 0px 14px 1px #999;
+        }
+    }
+}
