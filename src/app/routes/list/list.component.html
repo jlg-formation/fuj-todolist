@@ -13,13 +13,15 @@
 <br>
 <br>
 <br>
+<button [disabled]="!hasSelectedRecords()">Remove</button>
+<br>
 <br>
 <div class="table">
   <div class="row header">
     <div class="col col-1">Texte</div>
     <div class="col col-2">Urgent ?</div>
   </div>
-  <div *ngFor="let r of todolist" class="row">
+  <div (click)="toggleSelection(r)" *ngFor="let r of todolist" class="row" [class.selected]="isSelected(r)">
     <div class="col col-1">{{r.text}}</div>
     <div class="col col-2">{{r.isUrgent}}</div>
   </div>
