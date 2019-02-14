@@ -52,4 +52,8 @@ export class ListComponent implements OnInit {
     return this.selectedRecords.size > 0;
   }
 
+  removeSelection() {
+    console.log('about to remove');
+  }
+
 }
