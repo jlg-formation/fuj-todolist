@@ -3,12 +3,8 @@
     <div class="col col-1">Texte</div>
     <div class="col col-2">Urgent ?</div>
   </div>
-  <div class="row">
-    <div class="col col-1">Faire la vaisselle</div>
-    <div class="col col-2">oui</div>
-  </div>
-  <div class="row">
-    <div class="col col-1">Changer la couette</div>
-    <div class="col col-2">non</div>
+  <div *ngFor="let r of todolist" class="row">
+    <div class="col col-1">{{r.text}}</div>
+    <div class="col col-2">{{r.isUrgent}}</div>
   </div>
 </div>
