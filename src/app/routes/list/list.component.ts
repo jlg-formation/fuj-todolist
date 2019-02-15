@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { TodoRecord } from 'src/app/todorecord.interface';
+import { TodoListService } from 'src/app/todo-list.service';
 
-interface TodoRecord {
-  text: string;
-  isUrgent: boolean;
-};
+
 
 @Component({
   selector: 'app-list',
@@ -13,8 +12,6 @@ interface TodoRecord {
 })
 export class ListComponent implements OnInit {
 
-  todolist: TodoRecord[];
-
   selectedRecords: Set<TodoRecord> = new Set<TodoRecord>();
 
   f = new FormGroup({
@@ -22,13 +19,13 @@ export class ListComponent implements OnInit {
     isUrgent: new FormControl(false, [])
   });
 
-  constructor() { }
+  constructor(private todolist: TodoListService) { }
 
   ngOnInit() {
-    this.todolist = [
+    this.todolist.set([
       { text: 'Faire la vaisselle', isUrgent: false },
       { text: 'Changer la couette', isUrgent: false },
-    ];
+    ]);
   }
 
   onSubmit() {
@@ -60,8 +57,7 @@ export class ListComponent implements OnInit {
   removeSelection() {
     console.log('about to remove');
     this.selectedRecords.forEach(r => {
-      const index = this.todolist.findIndex(x => x === r);
-      this.todolist.splice(index, 1);
+      this.todolist.remove(r);
     });
     this.selectedRecords.clear();
   }

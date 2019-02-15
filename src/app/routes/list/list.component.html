@@ -19,7 +19,7 @@
     <div class="col col-1">Texte</div>
     <div class="col col-2">Urgent ?</div>
   </div>
-  <div (click)="toggleSelection(r)" *ngFor="let r of todolist" class="row" [class.selected]="isSelected(r)">
+  <div (click)="toggleSelection(r)" *ngFor="let r of todolist.list()" class="row" [class.selected]="isSelected(r)">
     <div class="col col-1">{{r.text}}</div>
     <div class="col col-2">{{r.isUrgent}}</div>
   </div>
