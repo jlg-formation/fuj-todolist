@@ -19,7 +19,7 @@ export class ListComponent implements OnInit {
     isUrgent: new FormControl(false, [])
   });
 
-  constructor(private todolist: TodoListService) { }
+  constructor(public todolist: TodoListService) { }
 
   ngOnInit() {
     this.todolist.set([

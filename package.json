@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "server": "nodemon --exec ts-node --watch ./server/**/*.ts --project server/tsconfig.json server/server.ts"
+    "server": "nodemon"
   },
   "private": true,
   "dependencies": {
