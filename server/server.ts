@@ -1,9 +1,11 @@
 import * as express from 'express';
 import * as serveIndex from 'serve-index';
+import { ws } from './ws';
 
 const port = 9000;
 
 const app = express();
+app.use('/ws', ws);
 
 const www: string = './server/www';
 app.use(express.static(www));
