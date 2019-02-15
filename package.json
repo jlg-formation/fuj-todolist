@@ -8,7 +8,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "server": "nodemon"
+    "server": "nodemon",
+    "deploy": "node scripts/deploy.js",
+    "postdeploy": "ng build --prod && npm run server"
   },
   "private": true,
   "dependencies": {
